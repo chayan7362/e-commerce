@@ -3,14 +3,16 @@ import HomePage from './customer/pages/Homepage/HomePage';
 import Footer from './customer/components/Footer/Footer';
 import Navigation from './customer/components/Navigation/Navigation';
 import Product from './customer/components/Product/Product';
+import ProductDetails from './customer/components/ProductDetails/ProductDetails';
 
 function App() {
   return (
     <div className="">
       <Navigation/>
       <div>
-        <HomePage/>
+        {/* <HomePage/> */}
         {/* <Product/> */}
+        <ProductDetails/>
       </div>
       <Footer/>
     </div>
