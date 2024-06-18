@@ -18,9 +18,9 @@ const CartItem = ( ) => {
           <p className="opacity-70">Size: L,White</p>
           <p className="opacity-70 mt-2">Seller: Crishtaliyo 2fashion</p>
           <div className="flex space-x-2 items-center pt-3">
-            <p className="opacity-50 line-through">₹199</p>
+            <p className="opacity-50 line-through">₹299</p>
             <p className="font-semibold text-lg">
-              ₹299
+              ₹199
             </p>
             <p className="text-green-600 font-semibold">
               5% off
