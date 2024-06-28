@@ -10,6 +10,7 @@ import Order from './customer/components/Order/Order';
 import OrderDetails from './customer/components/Order/OrderDetails';
 import { Routes, Route } from 'react-router-dom';
 import CustomerRoutes from './Routers/CustomerRouters';
+import HomeSectionCard from './customer/components/HomeSectionCard/HomeSectionCard';
 
 function App() {
   return (
