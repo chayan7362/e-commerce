@@ -1,12 +1,12 @@
 import React from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import HomeSectionCard from "../HomeSectionCard/HomeSectionCard";
 import { Button } from "@mui/material";
-import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import { useState } from "react";
+import HomeSectionCard from "../HomeSectionCard/HomeSectionCard";
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
-const HomeSectionCarosel = ({ data, sectionName }) => {
+const HomeSectionCarosel = ({ section, data }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const slidePrev = () => setActiveIndex(activeIndex - 1);
@@ -27,45 +27,49 @@ const HomeSectionCarosel = ({ data, sectionName }) => {
       itemsFit: "contain",
     },
   };
-
   const items = data?.slice(0, 10).map((item) => (
     <div className="">
       {" "}
       <HomeSectionCard product={item} />
     </div>
   ));
+
+  // const slideInFromRight = (t) => {
+  //   return `translateX(${100 - t * 100}%)`;
+  // };
+
   return (
-    <div className="border">
-      <h2 className="text-2xl font-extrabold text-gray-800 py-5">
-        {sectionName}
-      </h2>
-      <div className="relative p-5">
+    <div className="relative px-4 sm:px-6 lg:px-8 ">
+      <h2 className="text-2xl font-extrabold text-gray-900 py-5">{section}</h2>
+      <div className="relative border p-5">
         <AliceCarousel
           disableButtonsControls
           disableDotsControls
           mouseTracking
           items={items}
+          activeIndex={activeIndex}
           responsive={responsive}
           onSlideChanged={syncActiveIndex}
-          activeIndex={activeIndex}
+          animationType="fadeout"
+          animationDuration={2000}
         />
-
         {activeIndex !== items.length - 5 && (
           <Button
             onClick={slideNext}
             variant="contained"
-            className="z-50"
+            className="z-50 bg-[]"
             sx={{
               position: "absolute",
               top: "8rem",
               right: "0rem",
-              transform: "translatex(50%) rotate(90deg)",
-              bgcolor: "white",
+              transform: "translateX(50%) rotate(90deg)",
             }}
+            color="white"
             aria-label="next"
           >
-            <KeyboardArrowLeftIcon
-              sx={{ transform: "rotate(90deg)", color: "black" }}
+            <ArrowForwardIosIcon
+              className=""
+              sx={{ transform: "rotate(-90deg)" }}
             />
           </Button>
         )}
@@ -74,18 +78,19 @@ const HomeSectionCarosel = ({ data, sectionName }) => {
           <Button
             onClick={slidePrev}
             variant="contained"
-            className="z-50"
+            className="z-50 bg-[]"
+            color="white"
             sx={{
               position: "absolute",
               top: "8rem",
               left: "0rem",
-              transform: "translatex(-50%) rotate(90deg)",
-              bgcolor: "white",
+              transform: "translateX(-50%)  rotate(90deg)",
             }}
             aria-label="next"
           >
-            <KeyboardArrowLeftIcon
-              sx={{ transform: "rotate(-90deg)", color: "black" }}
+            <ArrowForwardIosIcon
+              className=""
+              sx={{ transform: " rotate(90deg)" }}
             />
           </Button>
         )}
